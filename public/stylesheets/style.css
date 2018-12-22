@@ -1,0 +1,100 @@
+:root {
+  --main-color: #6698D8;
+  --secondary-color: #DDE8F1;
+  --dark-blue: #0071D4;
+  --light-blue: #AECCE8;
+}
+
+body {
+  padding: 50px;
+  padding-top: 10px;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--secondary-color);
+}
+
+.title{
+  color: var(--dark-blue);
+}
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-color: white;
+}
+.footer-text{
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 40px;
+}
+
+
+/* LOGIN / CREATE ACCOUNT FORMS */
+.account-part{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.container-accounts{
+  width: 40vw;
+  height: 600px;
+  transition: .5s ease-in-out;
+  text-align: center;
+  padding-top: 50px;
+  display: inline-block;
+}
+.container-accounts:hover{
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 20px -15px black;
+  transition: .5s ease-in-out;
+}
+
+input{
+  transition: .5s ease-in-out;
+  border-width: 0;
+  height: 40px;
+  width: 500px;
+  font-size: 15px;
+  background-color: transparent;
+  border-bottom: 3px solid white;
+}
+input:focus{
+  border-bottom: 3px solid black;
+}
+.container-accounts:hover input{
+  transition: .5s ease-in-out;
+  background-color: transparent;
+  border-bottom: 3px solid var(--dark-blue);
+}
+.container-accounts:hover input:focus{
+  border-bottom: 3px solid black;
+}
+
+button{
+  transition: .5s ease-in-out;
+  border-width: 0;
+  margin-top: 100px;
+  width: 300px;
+  height: 50px;
+  background-color: white;
+  font-size: 20px;
+  display: none;
+}
+.container-accounts:hover button{
+  transition: .5s ease-in-out;
+  background-color: var(--dark-blue);
+  color: white;
+  display: initial;
+}
+.container-accounts:hover button:hover{
+  transition: .5s ease-in-out;
+  box-shadow: 0px 0px 20px -11px black;
+  background-color: black;
+}
