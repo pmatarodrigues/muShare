@@ -9,10 +9,18 @@
     justify-content: space-between;
 }
 
-.navbar-right > h1{
+.navbar-right > form > .logout{
+    background-color: transparent; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
     font-size: 20px;
+    display: inline-block;
+    transition: .5s ease-in-out;
 }
-
-.navbar-right > .create-account{
-    opacity: 0.3;
+.navbar-right > form > .logout:hover{
+    transition: .5s ease-in-out;
+    opacity: 0.4;
 }
