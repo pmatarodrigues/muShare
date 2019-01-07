@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 
 module.exports = {
     router: router,
+
     userLogout: (req, res) => {  
 
         let checkUserLoggedIn = "SELECT username FROM `user` WHERE login = 1";
@@ -30,6 +31,29 @@ module.exports = {
                 }
                 
                 res.redirect('/');
+            });
+    
+            
+        });
+    },
+
+    uploadMusic: (req, res) => {
+        let checkUserLoggedIn = "SELECT username FROM `user` WHERE login = 1";
+    
+        db.query(checkUserLoggedIn, (err, result) => {
+            if (err) {
+                return res.status(500).send(err);
+            }            
+
+            let changeUserLogoutStatus = 'INSERT INTO `music`(name, duration, user) VALUES("' + req.body.musicname + '","' + req.body.musicduration +
+             '","' + result[0].username + '")';
+    
+            db.query(changeUserLogoutStatus, (err, result) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                
+                res.redirect('/home');
             });
     
             

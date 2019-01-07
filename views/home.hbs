@@ -7,9 +7,45 @@
         <h1 class="title">{{title}}</h1>
     </div>
     <div class="navbar-right">
+        <button type="submit" id="toggleUploadModalButton" class="upload">Share</button>
         <form action="/logout" method="post">
             <button type="submit" name="logout" value="Logout" class="logout">Logout</button>
         </form>
     </div>
-
 </div>
+
+
+<div id="myModal" class="modal-content" style="display: none">
+    <div class="modal-header">
+        <div style="display: flex; justify-content: space-between">
+            <h2>Share Music</h2>
+            <span class="close">X</span>
+        </div>
+    </div>
+    <div class="modal-body">
+        <p class="subtitle">Let your friends know what you are listening to!</p>
+        <form action="/upload" method="POST">
+            <input type="text" placeholder="Music Name" name="musicname" required>
+            <br><br>
+            <input type="number" step="0.01" placeholder="Duration" name="musicduration" lang="en" >
+            <br><br>
+            <button type="submit" name="upload" value="Upload" class="upload">Upload</button>
+        </form>
+    </div>
+</div>
+
+
+{{!-- SCRIPT TO OPEN SHARE MODAL --}}
+<script>
+    var modal = document.getElementById('myModal');
+    var btn = document.getElementById("toggleUploadModalButton");    
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>

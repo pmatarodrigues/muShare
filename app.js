@@ -7,12 +7,13 @@ var mysql = require('mysql');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const {router, userLogout} = require('./routes/home');
 
 var app = express();
 
 // IMPORT FUNCTIONS FROM FILE
 const {userCreate, userLogin} = require('./routes/user')
+const {router, userLogout, uploadMusic} = require('./routes/home');
+
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -46,10 +47,12 @@ app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', router);
 
+
 // ASSOCIATE POSTS TO EACH FUNCTION
 app.post('/create', userCreate);
 app.post('/login', userLogin);
 app.post('/logout', userLogout);
+app.use('/upload', uploadMusic);
 
 
 // catch 404 and forward to error handler

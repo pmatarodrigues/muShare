@@ -127,3 +127,47 @@ input[type=submit]{
 }
 
 
+/* MODAL SHARE MUSIC */
+.modal-header {
+  padding: 0px 15px;
+  background-color: var(--light-blue);
+  color: white;
+  font-size: 30px;
+}
+
+.close{
+  color: var(--dark-blue);
+  font-size: 60px;
+}
+.close:hover{
+  color: red;
+}
+
+.modal-body {
+  padding: 12px 30px;
+}
+
+.modal-content {
+  width: 80%;
+  height: 70vh;
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modal-body > .subtitle{
+  font-size: 25px;
+  color: var(--light-blue);
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+} 

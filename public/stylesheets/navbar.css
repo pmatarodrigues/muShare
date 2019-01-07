@@ -1,3 +1,9 @@
+:root {
+    --main-color: #6698D8;
+    --secondary-color: #DDE8F1;
+    --dark-blue: #0071D4;
+    --light-blue: #AECCE8;
+  }
 
 .navbar{
     display: flex;
@@ -23,4 +29,22 @@
 .navbar-right > form > .logout:hover{
     transition: .5s ease-in-out;
     opacity: 0.4;
+}
+
+.upload{
+    width: 200px;
+    background-color: var(--dark-blue); 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    transition: .5s ease-in-out;
+}
+.upload:hover{
+    background-color: black;
+    transition: .5s ease-in-out;
+    box-shadow: 0px 0px 20px -15px black;
 }
