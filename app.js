@@ -52,7 +52,7 @@ app.use('/home', router);
 app.post('/create', userCreate);
 app.post('/login', userLogin);
 app.post('/logout', userLogout);
-app.use('/upload', uploadMusic);
+app.post('/upload', uploadMusic);
 
 
 // catch 404 and forward to error handler
@@ -70,5 +70,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

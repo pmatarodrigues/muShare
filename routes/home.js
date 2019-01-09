@@ -1,10 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
+var musicList = {};
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('home', { title: 'muShare' });
+
+    db.query('SELECT * FROM `music`', function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            musicList = {musicList: result};
+            console.log(musicList);
+            
+            res.render('home', { title: 'muShare', 'musicList': musicList });      
+        }
+    });
 });
 
 
@@ -28,12 +40,8 @@ module.exports = {
             db.query(changeUserLogoutStatus, (err, result) => {
                 if (err) {
                     return res.status(500).send(err);
-                }
-                
-                res.redirect('/');
-            });
-    
-            
+                }                
+            });            
         });
     },
 

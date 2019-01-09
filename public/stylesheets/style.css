@@ -126,6 +126,32 @@ input[type=submit]{
   transform: rotateY(180deg);
 }
 
+/* MUSIC FEED */
+#shared-feed{
+  width: 80%;
+  justify-content: center;
+  margin: 0 auto;
+  position: absolute;
+}
+
+.music-box{
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+}
+.music-box:hover{
+  background-color: var(--main-color);
+  box-shadow: 0px 0px 20px -15px black;
+}
+.music-box > strong{
+  font-size: 30px;
+}
+.music-box > p{
+  opacity: 0.5;
+}
 
 /* MODAL SHARE MUSIC */
 .modal-header {
