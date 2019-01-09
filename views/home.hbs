@@ -14,18 +14,18 @@
 </div>
 
 <div id="shared-feed">
-    <ul>
+    <ul id="shared-feed-musiclist">
     {{#each .}}
         {{#each musicList}}
         <div class="music-box">
             <strong> {{name}} </strong>
             <p>{{duration}} min</p>
+            <p>{{username}}</p>
         </div>
         {{/each}}
     {{/each}}
     </ul>
 </div>
-
 
 <div id="myModal" class="modal-content" style="display: none">
     <div class="modal-header">
@@ -66,12 +66,17 @@
 
     var socket = io.connect('http://localhost:3000/');
     $("#upload").click(function () {
-        console.log(socket);
         socket.emit('add_music', {name: $("#musicname").val(), duration: $('#musicduration').val()} );
     });
 
+    // REFRESH FEED WHEN NEW DATA IS INSERTED
     socket.on("refresh_feed", function (music) {
-        $("#shared-feed").append($("<p/>").html(music.name));        
-    });
 
+        var htmlMusicData = '<strong>'+music.name+'</strong>';
+        htmlMusicData += '<p>'+music.duration+'</p>';
+        htmlMusicData += '<p>'+req.user.username+'</p>';
+
+        $("#shared-feed-musiclist").append($('<div class="music-box">').html(htmlMusicData));  
+    });      
+    
 </script>

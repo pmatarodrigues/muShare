@@ -131,6 +131,7 @@ input[type=submit]{
   width: 80%;
   justify-content: center;
   margin: 0 auto;
+  padding-bottom: 300px;
   position: absolute;
 }
 

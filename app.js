@@ -4,6 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
+//var Store = sess.Store;
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -31,7 +36,6 @@ db.connect((err) => {
 });
 global.db = db;
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -42,6 +46,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// SESSION MANAGEMENT
+app.use(session({
+  name: 'LOGINSESSION',
+  secret: 'THISISSUPERSECRET',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60000
+  }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
@@ -50,9 +67,55 @@ app.use('/home', router);
 
 // ASSOCIATE POSTS TO EACH FUNCTION
 app.post('/create', userCreate);
-app.post('/login', userLogin);
-app.post('/logout', userLogout);
 app.post('/upload', uploadMusic);
+
+app.post('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+app.post("/login", passport.authenticate('local', {
+  successRedirect: '/home',
+  failureRedirect: '/',
+  failureFlash: true
+}), function(req, res, info){
+  console.log(req.user.username);
+  
+  // req.login(user, function(err) {
+  //   if (err) { return next(err); }
+  //   return res.redirect('/users/' + req.user.username);
+  // });
+});
+
+
+passport.use('local', new LocalStrategy({
+  usernameField: 'username',
+  passwordField: 'password',
+  passReqToCallback: true //passback entire req to call back
+} , function (req, username, password, done){
+      if(!username || !password ) { return done(null, false, req.flash('message','All fields are required.')); }
+      db.query("select * from user where username = ?", [username], function(err, rows){
+        console.log(err); console.log(rows);
+        if (err) return done(req.flash('message',err));
+
+        if(!rows.length){ return done(null, false, req.flash('message','Invalid username or password.')); }
+
+        var dbPassword  = rows[0].password;
+        if(!(dbPassword == password)){
+          return done(null, false, req.flash('message','Invalid username or password.'));
+        }
+        return done(null, rows[0]);
+      });
+    }
+));
+
+passport.serializeUser(function(user, done){
+  done(null, user.id);
+});
+passport.deserializeUser(function(id, done){
+  db.query("select * from user where id = "+ id, function (err, rows){
+      done(err, rows[0]);
+  });
+});
 
 
 // catch 404 and forward to error handler
