@@ -7,11 +7,22 @@ var mysql = require('mysql');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
-//var Store = sess.Store;
+var passportSocketIo = require('passport.socketio');
+var MySQLStore = require('connect-mysql')(session),
+  options = {
+    config: {
+      host: 'localhost',
+      user: 'pedro', 
+      password: 'pedro', 
+      database: 'muShare' 
+    }
+};
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var settingsRouter = require('./routes/settings');
+
 
 var app = express();
 
@@ -63,6 +74,7 @@ app.use('/', indexRouter);
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/home', router);
+app.use('/settings', settingsRouter);
 
 
 // ASSOCIATE POSTS TO EACH FUNCTION
@@ -78,12 +90,7 @@ app.post("/login", passport.authenticate('local', {
   failureRedirect: '/',
   failureFlash: true
 }), function(req, res, info){
-  console.log(req.user.username);
-  
-  // req.login(user, function(err) {
-  //   if (err) { return next(err); }
-  //   return res.redirect('/users/' + req.user.username);
-  // });
+
 });
 
 
@@ -136,4 +143,4 @@ app.use(function(err, req, res, next) {
 
 
 
-module.exports = app;
+module.exports = {app: app, passportSocketIo: passportSocketIo, passport: passport, cookieParser: cookieParser, MySQLStore: MySQLStore};

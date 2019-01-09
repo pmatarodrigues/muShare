@@ -7,9 +7,17 @@
     </div>
     <div class="navbar-right">
         <button type="submit" id="toggleUploadModalButton" class="upload">Share</button>
-        <form action="/logout" method="post">
-            <button type="submit" name="logout" value="Logout" class="logout">Logout</button>
-        </form>
+        <div class="dropdown">
+            <button class="logout">User</button>
+            <div class="dropdown-content">
+                <form action="/settings" method="GET">
+                    <button class="logout">Settings</button>
+                </form>
+                <form action="/logout" method="post">
+                    <button type="submit" name="logout" value="Logout" class="logout">Logout</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -19,8 +27,10 @@
         {{#each musicList}}
         <div class="music-box">
             <strong> {{name}} </strong>
-            <p>{{duration}} min</p>
-            <p>{{username}}</p>
+            <div class="music-details">
+                <p>{{duration}} min</p>
+                <p class="username">Posted by: {{username}}</p>
+            </div>
         </div>
         {{/each}}
     {{/each}}
@@ -71,12 +81,11 @@
 
     // REFRESH FEED WHEN NEW DATA IS INSERTED
     socket.on("refresh_feed", function (music) {
-
+        console.log(music);    
         var htmlMusicData = '<strong>'+music.name+'</strong>';
         htmlMusicData += '<p>'+music.duration+'</p>';
         htmlMusicData += '<p>'+req.user.username+'</p>';
-
         $("#shared-feed-musiclist").append($('<div class="music-box">').html(htmlMusicData));  
     });      
-    
+
 </script>

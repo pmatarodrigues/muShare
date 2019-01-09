@@ -144,7 +144,8 @@ input[type=submit]{
   padding: 20px;
 }
 .music-box:hover{
-  background-color: var(--main-color);
+  /* background-color: #eeeeee; */
+  width: 82%;
   box-shadow: 0px 0px 20px -15px black;
 }
 .music-box > strong{
@@ -152,6 +153,17 @@ input[type=submit]{
 }
 .music-box > p{
   opacity: 0.5;
+}
+.music-details{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 100px;
+}
+.music-details > .username{
+  font-size: 20px;
+  opacity: 0.3;
+  text-align: left;
+  width: 300px;
 }
 
 /* MODAL SHARE MUSIC */

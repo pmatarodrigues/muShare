@@ -14,7 +14,7 @@ function isAuthenticated(req, res, next) {
 /* GET home page. */
 router.get('/', isAuthenticated, function(req, res, next) {
     
-    db.query('SELECT name, duration, (SELECT username FROM user WHERE id = user) FROM `music`', function(err, result) {
+    db.query('SELECT name, duration, (SELECT username FROM user WHERE id = user) as username FROM `music`', function(err, result) {
         if(err){
             throw err;
         } else {
@@ -32,13 +32,13 @@ module.exports = {
 
         // QUERY TO INSERT MUSIC ON DATABASE
         let insertMusic = 'INSERT INTO `music`(name, duration, user) VALUES("' + req.body.musicname + '","' + req.body.musicduration +
-            '", (SELECT id FROM user WHERE username = "' + req.user.username + '") )';    
+            '", (SELECT id FROM user WHERE username = "' + req.user.username + '"))';    
             
         db.query(insertMusic, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             }                
-            //res.redirect('/home');
+            res.redirect('/home');
         });            
     }
 }    

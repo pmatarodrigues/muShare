@@ -15,7 +15,7 @@
     justify-content: space-between;
 }
 
-.navbar-right > form > .logout{
+.logout{
     background-color: transparent; 
     border: none;
     color: black;
@@ -26,10 +26,35 @@
     display: inline-block;
     transition: .5s ease-in-out;
 }
-.navbar-right > form > .logout:hover{
+.logout:hover{
     transition: .5s ease-in-out;
     opacity: 0.4;
 }
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+.dropdown-content > form > .logout{
+    width: 100%;
+}
+.dropdown-content > form > .logout:hover{
+    background-color: #e0e0e0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 .upload{
     width: 200px;
