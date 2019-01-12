@@ -103,6 +103,17 @@ input[type=submit]{
   background-color: black;
 }
 
+.warning-login{
+  color: red;
+  font-size: 10px;
+}
+#username-doesnt-exist{
+  display: none;
+}
+#wrong-password{
+  display: none;
+}
+
 
 /* ROTATION */
 
@@ -203,6 +214,19 @@ input[type=submit]{
 .modal-body > .subtitle{
   font-size: 25px;
   color: var(--light-blue);
+}
+
+/* SETTINGS PAGE */
+.settings-box{
+  width: 80%;
+  height: 70vh;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0px 0px 20px -15px black;
+  text-align: center;
 }
 
 /* Add Animation */

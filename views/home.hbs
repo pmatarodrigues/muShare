@@ -76,16 +76,17 @@
 
     var socket = io.connect('http://localhost:3000/');
     $("#upload").click(function () {
+        console.log(socket);            
+        console.log(io);
         socket.emit('add_music', {name: $("#musicname").val(), duration: $('#musicduration').val()} );
     });
 
     // REFRESH FEED WHEN NEW DATA IS INSERTED
-    socket.on("refresh_feed", function (music) {
-        console.log(music);    
+    socket.on('refresh_feed', function (music) {
+        console.log("MUSIC -> " + music);
         var htmlMusicData = '<strong>'+music.name+'</strong>';
-        htmlMusicData += '<p>'+music.duration+'</p>';
-        htmlMusicData += '<p>'+req.user.username+'</p>';
-        $("#shared-feed-musiclist").append($('<div class="music-box">').html(htmlMusicData));  
+        htmlMusicData += '<p>'+music.duration+' min</p>';
+        $("#shared-feed-musiclist").append($('<div class="music-box">').html(htmlMusicData));
     });      
 
 </script>

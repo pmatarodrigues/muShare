@@ -4,14 +4,9 @@
  * Module dependencies.
  */
 
-var app = require('../app').app;
-var passportSocketIo = require('../app').passportSocketIo;
-var passport = require('../app').passport;
-var MySQLStore = require('../app').MySQLStore;
-var cookieParser = require('../app').cookieParser;
+var app = require('../app');
 var debug = require('debug')('mshare:server');
 var http = require('http');
-
 
 
 /**
@@ -100,7 +95,7 @@ function onListening() {
 
 io.on('connection', (socket) =>{
   console.log('New user is connected');
-  socket.on('add_music',function(music){
+  socket.on('add_music',function(music){    
     io.emit('refresh_feed', music);
   });
 });

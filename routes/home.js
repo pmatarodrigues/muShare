@@ -19,7 +19,7 @@ router.get('/', isAuthenticated, function(req, res, next) {
             throw err;
         } else {
             musicList = {musicList: result};            
-            res.render('home', { title: 'muShare', 'musicList': musicList });      
+            res.render('home', { title: 'Home', 'musicList': musicList });      
         }
     });
 });
