@@ -1,22 +1,27 @@
 <link rel='stylesheet' href='/stylesheets/navbar.css' />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
 <div class="navbar">
     <div class="navbar-left">
-        <h1 class="title">{{title}}</h1>
+        <h1 class="title">muShare</h1>
     </div>
 </div>
 
 <div class="account-part">
     <form action="/login" method="POST">
-        <div class="container-accounts">
+        <div class="container-accounts" id="login">
             <div class="front-face">
                 <h1>
-                    Login
+                    Welcome back!
                 </h1>
+                <h2 style="color: white; opacity: 0.4">
+                    Post your favorite musics with your best friends.
+                </h2>
             </div>
             <div class="back-face">
                 <h1 class="login"> Login </h1>   
+                <p class="logout" id="changeToRegister" onclick="changeToRegister()" style="margin-top: -20px; font-size: 15px;">or Create Account</p>
                 <div>
                     <br>
                     <input type="text" placeholder="Enter username" name="username" required>
@@ -27,19 +32,17 @@
                     <input type="password" placeholder="Enter password" name="password" required>
                     <p id="wrong-password" class="warning-login">Wrong Password!</p>
                 </div>
+                <br>
                 <input id="login-button" type="submit" value="Login">
+                <br>
             </div>
         </div>
     </form>
     <form action="/create" method="POST">
-        <div class="container-accounts">
-            <div class="front-face">
-                <h1>
-                    Create Account
-                </h1>
-            </div>
+        <div class="container-accounts" id="register">
             <div class="back-face">
-                <h1 class="create-account" style="margin-left: 30px;"> Create Account </h1>
+                <h1 class="login">Create Account </h1>
+                <p class="logout" id="changeToLogin" onclick="changeToLogin()" style="margin-top: -20px; font-size: 15px;">or Login</p>
                 <div>
                     <br>
                     <input type="text" placeholder="Enter username" name="username" required>
@@ -52,9 +55,30 @@
                     <br>
                     <input type="password" placeholder="Confirm password" name="confirmPassword" required>
                 </div>
-                <input id="create-account-button" type="submit" value="Create Account">                
+                <input id="create-account-button" type="submit" value="Create Account">  
+                <br>
             </div>
+            <div class="front-face">
+                <h1>
+                    Join us!
+                </h1>
+                <h2 style="color: white; opacity: 0.4">
+                    Post your favorite musics with your best friends.
+                </h2>
+            </div>            
         </div>
     </form>
 </div>
 
+
+<script>
+    function changeToRegister(){
+        $('#login').css('display', 'none');
+        $('#register').css('display', 'flex ');
+    }
+
+    function changeToLogin(){
+        $('#register').css('display', 'none');
+        $('#login').css('display', 'flex');
+    }
+</script>

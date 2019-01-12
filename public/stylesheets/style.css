@@ -6,11 +6,10 @@
 }
 
 body {
-  padding: 50px;
   padding-top: 10px;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: var(--secondary-color);
+  background-color: white;
 }
 
 .title{
@@ -33,31 +32,24 @@ body {
 
 
 /* LOGIN / CREATE ACCOUNT FORMS */
+.login{
+  margin-top: 10%;
+}
+
 .account-part{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-evenly;
+  width: 90vw;
+  height: 70vh;
   margin: 0 auto;
   margin-top: 40px;
+  display: inline-block;
 }
 .container-accounts{
-  width: 40vw;
-  height: 600px;
+  width: 100vw;
+  height: 80vh;
   transition: .5s ease-in-out;
   text-align: center;
-  display: inline-block;
-  transform-style: preserve-3d;
-  background-color: white;
-  backface-visibility: hidden;
-}
-.container-accounts:hover{
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0px 0px 20px -15px black;
-  transition: .8s ease-in-out;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
+  display: flex;
+  justify-content: space-around;
 }
 
 input{
@@ -72,12 +64,12 @@ input{
 input:focus{
   border-bottom: 3px solid black;
 }
-.container-accounts:hover input{
+.container-accounts input{
   transition: .5s ease-in-out;
   background-color: transparent;
   border-bottom: 3px solid var(--dark-blue);
 }
-.container-accounts:hover input:focus{
+.container-accounts input:focus{
   border-bottom: 3px solid black;
 }
 
@@ -91,13 +83,13 @@ input[type=submit]{
   font-size: 20px;
   display: none;
 }
-.container-accounts:hover input[type=submit]{
+.container-accounts input[type=submit]{
   transition: .5s ease-in-out;
   background-color: var(--dark-blue);
   color: white;
   display: initial;
 }
-.container-accounts:hover input[type=submit]:hover{
+.container-accounts input[type=submit]:hover{
   transition: .5s ease-in-out;
   box-shadow: 0px 0px 20px -11px black;
   background-color: black;
@@ -116,28 +108,43 @@ input[type=submit]{
 
 
 /* ROTATION */
+#register.container-accounts {
+  display: none;
+}
 
 .front-face {
   transition: all .9s ease-in-out;
-  z-index: 100;
   width: 40vw;
-  height: 600px;
-  background-color: var(--light-blue);  
-  box-shadow: 0px 0px 20px -15px black;
-  position: absolute;
+  height: 100%;
+  background-color: var(--dark-blue);  
+  /* box-shadow: 0px 0px 20px -15px black; */
+  animation-name: animateblue;
+  animation-duration: 1s;
 }
 .front-face > h1{
   color: white;
-  padding-top: 50px;
+  padding-top: 30%;
   text-align: center;
-  margin: 20% auto;
+  margin: 0 auto;
   font-size: 70px;
 }
 .back-face {
-  transform: rotateY(180deg);
+  height: 100%;
+  width: 60vw;
+  background-color: white;
+  animation-name: animatewhite;
+  animation-duration: 1s;
 }
 
 /* MUSIC FEED */
+.feed-title{
+  padding-top: 100px;
+  font-size: 20px;
+  color: black;
+  opacity: 0.6;
+  margin-left: 50px;
+}
+
 #shared-feed{
   width: 80%;
   justify-content: center;
@@ -147,20 +154,22 @@ input[type=submit]{
 }
 
 .music-box{
-  width: 80%;
+  width: 120%;
+  height: 60px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 2px;
   margin: 0 auto;
-  margin-top: 20px;
   padding: 20px;
+  box-shadow: 0px 0px 18px -15px black;
 }
 .music-box:hover{
-  /* background-color: #eeeeee; */
-  width: 82%;
+  width: 116%;
+  margin-left: 20px;
   box-shadow: 0px 0px 20px -15px black;
 }
 .music-box > strong{
   font-size: 30px;
+  color: black;
 }
 .music-box > p{
   opacity: 0.5;
@@ -169,6 +178,7 @@ input[type=submit]{
   display: flex;
   justify-content: space-between;
   padding-right: 100px;
+  color: black;
 }
 .music-details > .username{
   font-size: 20px;
@@ -233,4 +243,33 @@ input[type=submit]{
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
+} 
+
+@keyframes animateblue {
+  0%{
+    width: 40vw;
+  }
+  10%{
+    width: 100vw;
+  }
+  50%{
+    width: 100vw;
+  }
+  100%{
+    width: 40vw;
+  }
+} 
+@keyframes animatewhite {
+  0%{
+    width: 60vw;
+  }
+  10%{
+    width: 0vw;
+  }
+  50%{
+    width: 0%;
+  }
+  100%{
+    width: 60vw;
+  }
 } 

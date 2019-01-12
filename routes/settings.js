@@ -12,8 +12,6 @@ function isAuthenticated(req, res, next) {
 
 /* GET home page. */
 router.get('/', isAuthenticated, function(req, res, next) {  
-  req.flash('errorMessage', 'Username not existent');
-
   res.render('settings', { title: 'Settings' });
 });
 
