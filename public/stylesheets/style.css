@@ -9,7 +9,7 @@ body {
   padding-top: 10px;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: white;
+  background-color: var(--secondary-color);
 }
 
 .title{
@@ -144,27 +144,28 @@ input[type=submit]{
   opacity: 0.6;
   margin-left: 50px;
 }
-
 #shared-feed{
-  width: 80%;
-  justify-content: center;
-  margin: 0 auto;
+  margin: auto;
   padding-bottom: 300px;
+  width: 70%;
   position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
-
 .music-box{
-  width: 120%;
-  height: 60px;
+  display: block;
+  width: 60vw;
+  height: 150px;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 5px;
   margin: 0 auto;
+  margin: 20px;
   padding: 20px;
   box-shadow: 0px 0px 18px -15px black;
 }
 .music-box:hover{
-  width: 116%;
-  margin-left: 20px;
   box-shadow: 0px 0px 20px -15px black;
 }
 .music-box > strong{
@@ -184,7 +185,8 @@ input[type=submit]{
   font-size: 20px;
   opacity: 0.3;
   text-align: left;
-  width: 300px;
+  width: 200px;
+  margin-top: 100px;
 }
 
 /* MODAL SHARE MUSIC */
@@ -194,7 +196,6 @@ input[type=submit]{
   color: white;
   font-size: 30px;
 }
-
 .close{
   color: var(--dark-blue);
   font-size: 60px;
@@ -203,24 +204,25 @@ input[type=submit]{
   color: red;
 }
 
-.modal-body {
-  padding: 12px 30px;
-}
-
 .modal-content {
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  text-align: center;
   width: 80%;
   height: 70vh;
-  position: relative;
+  position: fixed;
   background-color: white;
   border-radius: 5px;
-  margin: auto;
-  margin-top: 20px;
   padding: 0;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
   animation-duration: 0.4s
 }
-
+.modal-body {
+  padding: 12px 30px;
+}
 .modal-body > .subtitle{
   font-size: 25px;
   color: var(--light-blue);
@@ -244,6 +246,9 @@ input[type=submit]{
 .settings-box > form > button{
   background-color: white;
   color: black;
+}
+.settings-box > form > button:hover{
+  color: white;
 }
 .settings-box > a{
   color: white;
