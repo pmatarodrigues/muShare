@@ -6,9 +6,11 @@
         <h1 class="title">{{title}}</h1>
     </div>
     <div class="navbar-right">
-        <button type="submit" id="toggleUploadModalButton" class="upload">Share</button>
         <div class="dropdown">
-            <button class="logout">User</button>
+            <div style="margin-right: 10px;">
+                <p class="logout" style="font-size: 15px">{{user.username}}</p>
+                <img src="images/profilepics/{{user.pic}}" class="profile-pic" alt="userPic">
+            </div>
             <div class="dropdown-content">
                 <form action="/settings" method="GET">
                     <button class="logout">Settings</button>
@@ -18,6 +20,7 @@
                 </form>
             </div>
         </div>
+        <button type="submit" id="toggleUploadModalButton" class="upload">Share</button>
     </div>
 </div>
 <br>
@@ -29,11 +32,15 @@
     <ul id="shared-feed-musiclist">
     {{#each .}}
         {{#each musicList}}
-        <div class="music-box" onclick="openModalMusic({{musicListJSON}})">
+        <div class="music-box">
             <strong> {{name}} </strong>
+            <br>
+            <strong  onclick="openModalMusic()">[ &#8711; ]</strong>
+            <strong  onclick="openModalMusic()">[+]</strong>
             <div class="music-details">
                 <p>{{duration}} min</p>
                 <p class="username">Posted by: {{username}}</p>
+                <img src="images/profilepics/{{pic}}" class="profile-pic" style="margin-top: -50px" alt="userPic">
             </div>
         </div>
         {{/each}}
@@ -77,11 +84,11 @@
 
 
     function openModalMusic(music){
+        //let music2 = JSON.stringify(music).replace(/"/g, '&quot;');
         console.log(music);
         alert(music);
     }
-
-
+    
 </script>
 
 <script src="/socket.io/socket.io.js"></script>

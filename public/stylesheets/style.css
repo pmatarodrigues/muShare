@@ -184,20 +184,20 @@ input[type=submit]{
 .music-details > .username{
   font-size: 20px;
   opacity: 0.3;
-  text-align: left;
-  width: 200px;
-  margin-top: 50px;
+  text-align: right;
+  width: 20%;
+  margin-left: 50%;  
 }
 
 /* MODAL SHARE MUSIC */
 .modal-header {
   padding: 0px 15px;
-  background-color: var(--light-blue);
+  background-color: var(--dark-blue);
   color: white;
   font-size: 30px;
 }
 .close{
-  color: var(--dark-blue);
+  color: var(--secondary-color);
   font-size: 60px;
 }
 .close:hover{

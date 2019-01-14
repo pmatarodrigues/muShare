@@ -23,7 +23,6 @@ var flash = require('req-flash');
 var fileupload = require("express-fileupload");
 var multer  = require('multer');
 
-
 var app = express();
 
 // IMPORT FUNCTIONS FROM FILE
@@ -138,7 +137,6 @@ passport.deserializeUser(function(id, done){
       done(err, rows[0]);
   });
 });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

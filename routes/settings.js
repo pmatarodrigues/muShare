@@ -12,7 +12,7 @@ function isAuthenticated(req, res, next) {
 
 /* GET home page. */
 router.get('/', isAuthenticated, function(req, res, next) {  
-  res.render('settings', { title: 'Settings' });
+  res.render('settings', { title: 'Settings', user: req.user });
 });
 
 
