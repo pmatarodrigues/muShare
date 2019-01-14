@@ -20,6 +20,8 @@ var MySQLStore = require('connect-mysql')(session),
 const bcrypt = require('bcrypt');
 var dotenv = require('dotenv').config();
 var flash = require('req-flash');
+var fileupload = require("express-fileupload");
+var multer  = require('multer');
 
 
 var app = express();
@@ -27,10 +29,11 @@ var app = express();
 // IMPORT FUNCTIONS FROM FILE
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var {settingsRouter, editUserSettings} = require('./routes/settings');
+var {settingsRouter, editUserSettings, uploadProfilePic} = require('./routes/settings');
 const {userCreate, userLogin} = require('./routes/user')
 const {router, userLogout, uploadMusic} = require('./routes/home');
 
+var upload = multer({ dest: 'public/images/profilepics' });
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -57,6 +60,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileupload());
 
 // SESSION MANAGEMENT
 app.use(session({
@@ -71,6 +75,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
@@ -82,6 +87,7 @@ app.use('/settings', settingsRouter);
 app.post('/create', userCreate);
 app.post('/upload', uploadMusic);
 app.post('/changeSettings', editUserSettings);
+app.post('/uploadProfilePic', upload.single('pic'), uploadProfilePic);
 
 app.post('/logout', function(req, res){
   req.logout();

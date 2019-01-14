@@ -29,9 +29,13 @@
 
     <h1>Settings</h1>
 
-    <form action="/changeSettings" method="POST">
-        <input type="text" placeholder="Username" name="username" style="margin-bottom: 50px">
+    <form action="/uploadProfilePic" method="POST" enctype="multipart/form-data">
+        <p style="color: white">Choose profile picture</p>
+        <input type="file" title="Select profile picture" accept="" name="pic" style="margin-bottom: 50px; width: 30%" class="upload">
+        <button type="submit" class="upload">Upload</button>        
         <br>
+    </form>
+    <form action="/changeSettings" method="POST">
         <input type="password" placeholder="Password" name="password" style="margin-bottom: 50px">
         <br>
         <input type="password" placeholder="Confirm Password" name="confirmPassword" style="margin-bottom: 50px">

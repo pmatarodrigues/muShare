@@ -29,7 +29,7 @@
     <ul id="shared-feed-musiclist">
     {{#each .}}
         {{#each musicList}}
-        <div class="music-box">
+        <div class="music-box" onclick="openModalMusic({{musicListJSON}})">
             <strong> {{name}} </strong>
             <div class="music-details">
                 <p>{{duration}} min</p>
@@ -61,6 +61,7 @@
 </div>
 
 
+
 {{!-- SCRIPT TO OPEN SHARE MODAL --}}
 <script>
     var modal = document.getElementById('myModal');
@@ -71,8 +72,16 @@
         modal.style.display = "block";
     }
     span.onclick = function() {
-        modal.style.display = "none";
+        modal.style.display = "none";        
     }
+
+
+    function openModalMusic(music){
+        console.log(music);
+        alert(music);
+    }
+
+
 </script>
 
 <script src="/socket.io/socket.io.js"></script>
