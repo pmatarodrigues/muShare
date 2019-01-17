@@ -1,0 +1,53 @@
+<link rel='stylesheet' href='/stylesheets/navbar.css' />
+<link rel='stylesheet' href='/stylesheets/style.css' />
+
+
+
+<div class="navbar">
+    <div class="navbar-left">
+        <h1 class="title">{{title}}</h1>
+    </div>
+    <div class="navbar-right">
+        <div class="dropdown">
+            <div style="margin-right: 10px;">
+                <img src="images/profilepics/{{user.pic}}" class="profile-pic" alt="userPic">
+            </div>
+            <div class="dropdown-content">
+                <form action="/settings" method="GET">
+                    <button class="logout">Settings</button>
+                </form>
+                <form action="/logout" method="post">
+                    <button type="submit" name="logout" value="Logout" class="logout">Logout</button>
+                </form>
+            </div>
+        </div>
+        <button type="submit" id="toggleUploadModalButton" class="upload">Share</button>
+        <form action="/" method="GET">
+            <button type="submit" class="logout">Home</button>
+        </form>
+    </div>
+</div>
+
+
+<div style="height: 45vh">
+    <div class="settings-box" style="height: 20vh">
+        <img src="images/profilepics/{{user.pic}}" class="profile-pic-user" alt="userPic">  
+        <h1 style="color: var(--dark-blue)">{{userProfile.username}}</h1>
+    </div>
+</div>
+
+<div id="shared-feed">
+    <ul id="shared-feed-musiclist">
+        {{#each musicList}}
+        <div class="music-box">
+            <strong> {{name}} </strong>
+            <br>
+            <strong  onclick="openModalMusic()">[ &#8711; ]</strong>
+            <strong  onclick="openModalMusic()">[+]</strong>
+            <div class="music-details">
+                <p>{{duration}} min</p>
+            </div>
+        </div>
+        {{/each}}
+    </ul>
+</div>

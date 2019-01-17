@@ -26,7 +26,7 @@ module.exports = {
     var picname = file.name;     
     let checkUsernameQuery = "SELECT * FROM `user` WHERE username = '" + username + "'";
     let createQuery;
-    if(file.mimetype == "image/jpeg" ||file.mimetype == "image/png"||file.mimetype == "image/gif" ){
+    if(file.mimetype == "image/jpeg" ||file.mimetype == "image/png"||file.mimetype == "image/jpg" ){
                                 
       file.mv('public/images/profilepics/'+file.name, function(err) {                      
         if (err)
@@ -56,7 +56,7 @@ module.exports = {
       });
     } else {
       message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
-      res.render('index.ejs',{message: message});
+      res.render('home',{message: message});
     }
 
   },

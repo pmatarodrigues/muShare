@@ -9,20 +9,9 @@
         <h1 class="title">{{title}}</h1>
     </div>
     <div class="navbar-right">
-        <p class="logout" style="height: 0px">{{user.name}}</p>
-        <img src="images/profilepics/{{user.pic}}" class="profile-pic" alt="userPic">
-        <button type="submit" id="toggleUploadModalButton" class="upload">Share</button>
-        <div class="dropdown">
-            <button class="logout">User</button>
-            <div class="dropdown-content">
-                <form action="/settings" method="GET">
-                    <button class="logout">Settings</button>
-                </form>
-                <form action="/logout" method="post">
-                    <button type="submit" name="logout" value="Logout" class="logout">Logout</button>
-                </form>
-            </div>
-        </div>
+        <p class="logout">{{user.username}}</p>
+        <img src="images/profilepics/{{user.pic}}" class="profile-pic" alt="userPic">        
+        <a type="submit" href="/" class="upload" style="height: 40px">Return to Home</a>        
     </div>
 </div>
 

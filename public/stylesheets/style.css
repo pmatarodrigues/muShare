@@ -257,6 +257,16 @@ input[type=submit]{
   color: white;
 }
 
+
+
+/* PROFILE */
+.profile-pic-user{
+  width: 15vw;
+  height: 30vh;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px -10px black;
+}
+
 /* Add Animation */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}

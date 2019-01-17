@@ -1,15 +1,6 @@
 const bcrypt = require('bcrypt');
 
 
-// ENCRYPT PASSWORDS
-function encryptPassword(plainTextPassword){    
-    bcrypt.hash(plainTextPassword, 5, function(err, hash) {
-        if(!err){       
-            console.log(hash);                   
-            return hash;
-        }
-    });
-}
 
 async function userCreate(req, res){
     let username = req.body.username;

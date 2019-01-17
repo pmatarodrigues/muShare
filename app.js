@@ -27,10 +27,11 @@ var app = express();
 
 // IMPORT FUNCTIONS FROM FILE
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// var usersRouter = require('./routes/users');
 var {settingsRouter, editUserSettings, uploadProfilePic} = require('./routes/settings');
 const {userCreate, userLogin} = require('./routes/user')
 const {router, userLogout, uploadMusic} = require('./routes/home');
+var profileRouter = require('./routes/profile');
 
 var upload = multer({ dest: 'public/images/profilepics' });
 
@@ -77,9 +78,10 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 app.use('/home', router);
 app.use('/settings', settingsRouter);
+app.use('/profile', profileRouter);
 
 
 // ASSOCIATE POSTS TO EACH FUNCTION
