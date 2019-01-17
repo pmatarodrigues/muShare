@@ -11,6 +11,9 @@
                 <img src="images/profilepics/{{user.pic}}" class="profile-pic" alt="userPic">
             </div>
             <div class="dropdown-content">
+                <form action="/profile?user={{onlineUser}}" method="GET">
+                    <button type="submit" class="logout">My Profile</button>
+                </form>
                 <form action="/settings" method="GET">
                     <button class="logout">Settings</button>
                 </form>
@@ -38,7 +41,9 @@
             <strong  onclick="openModalMusic()">[+]</strong>
             <div class="music-details">
                 <p>{{duration}} min</p>
-                <p class="username">Posted by: {{username}}</p>
+                <form action="/profile?user={{username}}" method="GET">
+                    <button type="submit" class="logout">Posted by: {{username}}</button>
+                </form>
                 <img src="images/profilepics/{{pic}}" class="profile-pic" style="margin-top: -50px" alt="userPic">
             </div>
         </div>

@@ -19,9 +19,8 @@ router.get('/', isAuthenticated, function(req, res, next) {
         if(err){
             throw err;
         } else {
-            musicList = {musicList: result};            
-            musicListJSON =  JSON.stringify(musicList).replace(/"/g, '&quot;');        
-            res.render('home', { title: 'Home', 'musicList': musicList, 'musicListJSON': musicListJSON, user: req.user });      
+            musicList = {musicList: result};                        
+            res.render('home', { title: 'Home', 'musicList': musicList, user: req.user, onlineUser: req.user.username});      
         }
     });
 });

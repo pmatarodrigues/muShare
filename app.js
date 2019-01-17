@@ -8,15 +8,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var passportSocketIo = require('passport.socketio');
-var MySQLStore = require('connect-mysql')(session),
-  options = {
-    config: {
-      host: 'localhost',
-      user: 'pedro', 
-      password: 'pedro', 
-      database: 'muShare' 
-    }
-};
 const bcrypt = require('bcrypt');
 var dotenv = require('dotenv').config();
 var flash = require('req-flash');
