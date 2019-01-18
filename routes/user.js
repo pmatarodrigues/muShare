@@ -6,7 +6,7 @@ async function userCreate(req, res){
     let username = req.body.username;
     let password = req.body.password;
     let confirmPassword = req.body.confirmPassword;
-    let bio = " ";        
+    let bio = "i";        
     if(password.localeCompare(confirmPassword) == 0){
 
         let checkUsernameQuery = "SELECT * FROM `user` WHERE username = '" + username + "'";

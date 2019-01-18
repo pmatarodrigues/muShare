@@ -12,8 +12,8 @@ var MySQLStore = require('connect-mysql')(session),
   options = {
     config: {
       host: 'localhost',
-      user: 'pedro', 
-      password: 'pedro', 
+      user: 'root', 
+      password: 'root', 
       database: 'muShare' 
     }
 };
@@ -37,8 +37,8 @@ var upload = multer({ dest: 'public/images/profilepics' });
 
 const db = mysql.createConnection({
   host: "localhost",
-  user: "pedro",
-  password: 'pedro',
+  user: "root",
+  password: 'root',
   database: "muShare"
 });
   

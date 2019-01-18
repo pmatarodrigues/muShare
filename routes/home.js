@@ -33,8 +33,8 @@ module.exports = {
     uploadMusic: (req, res) => {        
 
         // QUERY TO INSERT MUSIC ON DATABASE
-        let insertMusic = 'INSERT INTO `music`(name, duration, user, dateUpload) VALUES("' + req.body.musicname + '","' + req.body.musicduration +
-            '", (SELECT id FROM user WHERE username = "' + req.user.username + '"), "' +  moment().format() + '")';    
+        let insertMusic = 'INSERT INTO `music`(name, duration, user, music) VALUES("' + req.body.musicname + '","' + req.body.musicduration +
+            '", (SELECT id FROM user WHERE username = "' + req.user.username + '")' + ',"' + req.body.music +'")';    
             
         db.query(insertMusic, (err, result) => {
             if (err) {

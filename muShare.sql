@@ -33,6 +33,7 @@ CREATE TABLE `music` (
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
   `duration` decimal(50,2) DEFAULT NULL,
   `user` int(11) NOT NULL,
+  `music` varchar(200),
   `dateUpload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -104,7 +105,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8_bin NOT NULL,
   `password` varchar(200) COLLATE utf8_bin NOT NULL,
-  `pic` varchar(200) COLLATE utf8_bin NOT NULL,
+  `pic` varchar(200),
   `bio` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -177,7 +178,7 @@ DELIMITER $$
 --
 -- Eventos
 --
-CREATE DEFINER=`pedro`@`localhost` EVENT `sess_cleanup` ON SCHEDULE EVERY 15 MINUTE STARTS '2019-01-09 14:57:37' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM `sessions` WHERE id IN (SELECT temp.id FROM (SELECT `id` FROM `sessions` WHERE `expires` > 0 AND `expires` < UNIX_TIMESTAMP()) AS temp)$$
+CREATE DEFINER=`benjamim`@`localhost` EVENT `sess_cleanup` ON SCHEDULE EVERY 15 MINUTE STARTS '2019-01-09 14:57:37' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM `sessions` WHERE id IN (SELECT temp.id FROM (SELECT `id` FROM `sessions` WHERE `expires` > 0 AND `expires` < UNIX_TIMESTAMP()) AS temp)$$
 
 DELIMITER ;
 COMMIT;
