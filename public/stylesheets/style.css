@@ -100,10 +100,16 @@ input[type=submit]{
   font-size: 10px;
 }
 #username-doesnt-exist{
-  display: none;
+  display: block;
 }
 #wrong-password{
-  display: none;
+  display: block;
+}
+#username-in-use{
+  display: block;
+}
+#different-passwords{
+  display: block;
 }
 
 
