@@ -22,6 +22,9 @@ async function userCreate(req, res){
                     if (result.length > 0) {
                         // TODO: CHANGE THIS TO POPUP / ERROR
                         console.log('Username already exists');
+                        var user = document.getElementById("username");
+                        var warning = document.getElementById("username-in-use");
+                        warning.innerHTML = "fudeu";
                     }
                     else{
                         db.query(createQuery, (err, result) => {

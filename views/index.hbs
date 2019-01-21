@@ -1,6 +1,6 @@
 <link rel='stylesheet' href='/stylesheets/navbar.css' />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+<script src="http://localhost/muShare/verificacoes/ver.js"></script>
 
 <div class="navbar">
     <div class="navbar-left">
@@ -24,13 +24,13 @@
                 <p class="logout" id="changeToRegister" onclick="changeToRegister()" style="margin-top: -20px; font-size: 15px;">or Create Account</p>
                 <div>
                     <br>
-                    <input type="text" placeholder="Enter username" name="username" required>
-                    <p id="username-doesnt-exist" class="warning-login">Username doesn't exist!</p>
+                    <input type="text" placeholder="Enter username" name="username" id="username" required>
+                    <p id="username-doesnt-exist" class="warning-login"></p>
                 </div>
                 <div>
                     <br>
                     <input type="password" placeholder="Enter password" name="password" required>
-                    <p id="wrong-password" class="warning-login">Wrong Password!</p>
+                    <p id="wrong-password" class="warning-login"></p>
                 </div>
                 <br>
                 <input id="login-button" type="submit" value="Login">
@@ -38,7 +38,7 @@
             </div>
         </div>
     </form>
-    <form action="/create" method="POST">
+    <form action="/create" method="POST" id="formCreate">
         <div class="container-accounts" id="register">
             <div class="back-face">
                 <h1 class="login">Create Account </h1>
@@ -46,18 +46,19 @@
                 <div>
                     <br>
                     <input type="text" placeholder="Enter username" name="username" required>
-                    <p id="username-in-use" class="warning-login">Username is already in use!</p>
+                    <p id="username-in-use" class="warning-login"></p>
                 </div>
                 <div>
                     <br>
-                    <input type="password" placeholder="Enter password" name="password" required>
+                    <input type="password" placeholder="Enter password" name="password" id="password" required>
+                    <p id='pass' class="warning-login"></p>
                 </div>
                 <div>
                     <br>
-                    <input type="password" placeholder="Confirm password" name="confirmPassword" required>
-                    <p id="different-passwords" class="warning-login">Passwords are not equal!</p>
+                    <input type="password" placeholder="Confirm password" name="confirmPassword" id="confPassword" required>
+                    <p id="different-passwords" class="warning-login"></p>
                 </div>
-                <input id="create-account-button" type="submit" value="Create Account">  
+                <input id="create-account-button" type="submit" value="Create Account" onclick="return validateCreate()">  
                 <br>
             </div>
             <div class="front-face">

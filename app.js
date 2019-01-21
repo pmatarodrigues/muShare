@@ -29,8 +29,8 @@ var upload = multer({ dest: 'public/images/profilepics' });
 
 const db = mysql.createConnection({
   host: "localhost",
-  user: "pedro",
-  password: 'pedro',
+  user: "root",
+  password: 'root',
   database: "muShare"
 });
   

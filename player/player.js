@@ -56,6 +56,7 @@ function stop(){
   sound.stop();
   sound = null;
   musAtual.innerHTML = 'Sem Musica';
+  document.getElementById('progresso').value=0;
 }
 
 // Volume controll
