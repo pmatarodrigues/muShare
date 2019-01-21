@@ -3,8 +3,13 @@
 <div class="navbar">
 
     <div class="navbar-left">
-        <h1 class="title">{{title}}</h1>
+        <h2 class="title">{{title}}</h2>
     </div>
+    <div class="sliders">
+                <h1 id="musAtual">Sem musica</h1>
+                <input type="range" min="0" max="100" value="50" class="slider" id="volume">
+                <input type="range" min="0" max="100" value="0" class="slider" id="progresso">
+            </div>
     <div class="navbar-right">
         <div class="dropdown">
             <div style="margin-right: 10px;">
@@ -37,14 +42,11 @@
         <div class="music-box">
             <strong> {{name}} </strong>
             <br>
-            <button onclick="play()">Play</button>
+            <button onclick="play('{{music}}', '{{name}}')">Play</button>
             <button onclick="pause()">Pause</button>
             <button onclick="stop()">Stop</button>
             <!-- Volume -->
-            <div class="sliders">
-                <input type="range" min="0" max="100" value="50" class="slider" id="volume">
-                <input type="range" min="0" max="100" value="50" class="slider" id="progresso">
-            </div>
+            
             <div class="music-details">
                 <form action="/profile?user={{username}}" method="GET">
                     <button type="submit" class="logout">Posted by: {{username}}</button>
