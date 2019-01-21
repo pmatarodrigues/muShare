@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 17/01/2019 às 12:32
--- Versão do servidor: 10.1.34-MariaDB
--- Versão do PHP: 7.2.7
+-- Host: localhost:3306
+-- Generation Time: Jan 21, 2019 at 01:49 AM
+-- Server version: 5.7.24-0ubuntu0.18.04.1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `muShare`
+-- Database: `muShare`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `music`
+-- Table structure for table `music`
 --
 
 CREATE TABLE `music` (
@@ -33,26 +31,31 @@ CREATE TABLE `music` (
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
   `duration` decimal(50,2) DEFAULT NULL,
   `user` int(11) NOT NULL,
-  `music` varchar(200),
+  `music` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `dateUpload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Fazendo dump de dados para tabela `music`
+-- Dumping data for table `music`
 --
 
-INSERT INTO `music` (`id`, `name`, `duration`, `user`, `dateUpload`) VALUES
-(55, 'Hino ESTG', '4.21', 26, '2019-01-14 16:05:33'),
-(56, 'Salvador Sobral', '3.52', 26, '2019-01-14 16:05:50'),
-(57, 'Qualquer cosa', '2.12', 26, '2019-01-15 15:05:45'),
-(58, 'coćo', '2.00', 26, '2019-01-15 15:05:59'),
-(59, 'cocó', '45.00', 26, '2019-01-17 11:09:28'),
-(60, 'musica', '1.24', 26, '2019-01-17 11:09:49');
+INSERT INTO `music` (`id`, `name`, `duration`, `user`, `music`, `dateUpload`) VALUES
+(55, 'Hino ESTG', '4.21', 26, NULL, '2019-01-14 16:05:33'),
+(56, 'Salvador Sobral', '3.52', 26, NULL, '2019-01-14 16:05:50'),
+(57, 'Qualquer cosa', '2.12', 26, NULL, '2019-01-15 15:05:45'),
+(58, 'coćo', '2.00', 26, NULL, '2019-01-15 15:05:59'),
+(59, 'cocó', '45.00', 26, NULL, '2019-01-17 11:09:28'),
+(60, 'musica', '1.24', 26, NULL, '2019-01-17 11:09:49'),
+(61, 'fvgbhnj', '123.00', 28, 'benjamim.jpg', '2019-01-18 18:40:09'),
+(62, 'setidez', '7.10', 28, 'ficheiro.jpg', '2019-01-18 19:11:01'),
+(63, 'qwe', '123.00', 28, 'undefined', '2019-01-19 15:48:07'),
+(64, 'Boombible', '2.00', 28, 'undefined', '2019-01-19 18:49:09'),
+(65, 'Boombiple', '2.30', 28, 'boombiple.wav', '2019-01-19 18:50:52');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `playlist`
+-- Table structure for table `playlist`
 --
 
 CREATE TABLE `playlist` (
@@ -65,7 +68,7 @@ CREATE TABLE `playlist` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `playlist_music`
+-- Table structure for table `playlist_music`
 --
 
 CREATE TABLE `playlist_music` (
@@ -76,7 +79,7 @@ CREATE TABLE `playlist_music` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `sessions`
+-- Table structure for table `sessions`
 --
 
 CREATE TABLE `sessions` (
@@ -86,7 +89,7 @@ CREATE TABLE `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fazendo dump de dados para tabela `sessions`
+-- Dumping data for table `sessions`
 --
 
 INSERT INTO `sessions` (`sid`, `session`, `expires`) VALUES
@@ -98,90 +101,87 @@ INSERT INTO `sessions` (`sid`, `session`, `expires`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8_bin NOT NULL,
   `password` varchar(200) COLLATE utf8_bin NOT NULL,
-  `pic` varchar(200),
+  `pic` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `bio` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Fazendo dump de dados para tabela `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `pic`, `bio`, `login`) VALUES
 (26, 'ipvc', '$2b$05$bkFDzOsAjJowKFVZGJsglem8HzFng9ILNvQUxwThfCpWjV2Jal3bu', '054058_1_1205_ipvc-300x300.jpg', ' ', 0),
-(27, 'teste', '$2b$05$gVkyGwUQYWFfLfnbiuC41egctv/TKbP8VuxiDmDwfr/Kj/n6P9x.G', '054058_1_1205_ipvc-300x300.jpg', ' ', 0);
+(27, 'teste', '$2b$05$gVkyGwUQYWFfLfnbiuC41egctv/TKbP8VuxiDmDwfr/Kj/n6P9x.G', '054058_1_1205_ipvc-300x300.jpg', ' ', 0),
+(28, 'benjamim', '$2b$05$Pmni.bWoxzCY64Yp2W0sTuuKKuuKyQg74DIeKke9V6wRmkVaHKj/q', 'benjamim.jpg', 'i', 0);
 
 --
--- Índices de tabelas apagadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `music`
+-- Indexes for table `music`
 --
 ALTER TABLE `music`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `playlist`
+-- Indexes for table `playlist`
 --
 ALTER TABLE `playlist`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `playlist_music`
+-- Indexes for table `playlist_music`
 --
 ALTER TABLE `playlist_music`
   ADD PRIMARY KEY (`playlist`,`music`);
 
 --
--- Índices de tabela `sessions`
+-- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`sid`);
 
 --
--- Índices de tabela `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `music`
+-- AUTO_INCREMENT for table `music`
 --
 ALTER TABLE `music`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 --
--- AUTO_INCREMENT de tabela `playlist`
+-- AUTO_INCREMENT for table `playlist`
 --
 ALTER TABLE `playlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT de tabela `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 DELIMITER $$
 --
--- Eventos
+-- Events
 --
 CREATE DEFINER=`benjamim`@`localhost` EVENT `sess_cleanup` ON SCHEDULE EVERY 15 MINUTE STARTS '2019-01-09 14:57:37' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM `sessions` WHERE id IN (SELECT temp.id FROM (SELECT `id` FROM `sessions` WHERE `expires` > 0 AND `expires` < UNIX_TIMESTAMP()) AS temp)$$
 
 DELIMITER ;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
