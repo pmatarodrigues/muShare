@@ -34,8 +34,9 @@
         <div class="music-box">
             <strong> {{name}} </strong>
             <br>
-            <strong  onclick="play()">[ &#8711; ]</strong>
-            <strong  onclick="openModalMusic()">[+]</strong>
+            <button onclick="play()">Play</button>
+            <button onclick="pause()">Pause</button>
+            <button onclick="stop()">Stop</button>
             <div class="music-details">
                 <p>{{duration}} min</p>
                 <p class="username">Posted by: {{username}}</p>
