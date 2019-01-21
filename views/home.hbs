@@ -37,6 +37,11 @@
             <button onclick="play()">Play</button>
             <button onclick="pause()">Pause</button>
             <button onclick="stop()">Stop</button>
+            <!-- Volume -->
+            <div class="sliders">
+                <input type="range" min="0" max="100" value="50" class="slider" id="volume">
+                <input type="range" min="0" max="100" value="50" class="slider" id="progresso">
+            </div>
             <div class="music-details">
                 <p>{{duration}} min</p>
                 <p class="username">Posted by: {{username}}</p>
