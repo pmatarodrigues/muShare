@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 21, 2019 at 01:49 AM
+-- Generation Time: Jan 22, 2019 at 12:36 AM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -40,17 +40,12 @@ CREATE TABLE `music` (
 --
 
 INSERT INTO `music` (`id`, `name`, `duration`, `user`, `music`, `dateUpload`) VALUES
-(55, 'Hino ESTG', '4.21', 26, NULL, '2019-01-14 16:05:33'),
-(56, 'Salvador Sobral', '3.52', 26, NULL, '2019-01-14 16:05:50'),
-(57, 'Qualquer cosa', '2.12', 26, NULL, '2019-01-15 15:05:45'),
-(58, 'coćo', '2.00', 26, NULL, '2019-01-15 15:05:59'),
-(59, 'cocó', '45.00', 26, NULL, '2019-01-17 11:09:28'),
-(60, 'musica', '1.24', 26, NULL, '2019-01-17 11:09:49'),
-(61, 'fvgbhnj', '123.00', 28, 'benjamim.jpg', '2019-01-18 18:40:09'),
-(62, 'setidez', '7.10', 28, 'ficheiro.jpg', '2019-01-18 19:11:01'),
-(63, 'qwe', '123.00', 28, 'undefined', '2019-01-19 15:48:07'),
-(64, 'Boombible', '2.00', 28, 'undefined', '2019-01-19 18:49:09'),
-(65, 'Boombiple', '2.30', 28, 'boombiple.wav', '2019-01-19 18:50:52');
+(66, 'Mac Miller', '3.00', 32, 'mac.mp3', '2019-01-21 23:14:51'),
+(67, 'Tyler, The', '3.00', 28, 'tyler.mp3', '2019-01-21 16:21:00'),
+(68, 'Death', '3.00', 32, 'death.mp3', '2019-01-21 23:14:51'),
+(69, 'Ultimate.mp3', NULL, 28, 'Ultimate.mp3', '2019-01-21 18:20:51'),
+(70, 'Jonas Blue.mp3', NULL, 32, 'Jonas Blue.mp3', '2019-01-21 23:12:54'),
+(71, 'Masego.mp3', NULL, 28, 'Masego.mp3', '2019-01-21 23:16:21');
 
 -- --------------------------------------------------------
 
@@ -118,9 +113,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `pic`, `bio`, `login`) VALUES
-(26, 'ipvc', '$2b$05$bkFDzOsAjJowKFVZGJsglem8HzFng9ILNvQUxwThfCpWjV2Jal3bu', '054058_1_1205_ipvc-300x300.jpg', ' ', 0),
-(27, 'teste', '$2b$05$gVkyGwUQYWFfLfnbiuC41egctv/TKbP8VuxiDmDwfr/Kj/n6P9x.G', '054058_1_1205_ipvc-300x300.jpg', ' ', 0),
-(28, 'benjamim', '$2b$05$Pmni.bWoxzCY64Yp2W0sTuuKKuuKyQg74DIeKke9V6wRmkVaHKj/q', 'benjamim.jpg', 'i', 0);
+(28, 'benjamim', '$2b$05$Pmni.bWoxzCY64Yp2W0sTuuKKuuKyQg74DIeKke9V6wRmkVaHKj/q', 'benjamim.jpg', 'i', 0),
+(32, 'pedro', '$2b$05$Q14Mp2IIczz2vGh9vmPOj./kvx.d4zEd2dZIcaOjdDMsxoevELpyK', 'pedro.jpg', 'i', 0);
 
 --
 -- Indexes for dumped tables
@@ -164,7 +158,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `music`
 --
 ALTER TABLE `music`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `playlist`
 --
@@ -174,7 +168,7 @@ ALTER TABLE `playlist`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 DELIMITER $$
 --
 -- Events
