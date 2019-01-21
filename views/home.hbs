@@ -37,10 +37,15 @@
         <div class="music-box">
             <strong> {{name}} </strong>
             <br>
-            <strong  onclick="openModalMusic()">[ &#8711; ]</strong>
-            <strong  onclick="openModalMusic()">[+]</strong>
+            <button onclick="play()">Play</button>
+            <button onclick="pause()">Pause</button>
+            <button onclick="stop()">Stop</button>
+            <!-- Volume -->
+            <div class="sliders">
+                <input type="range" min="0" max="100" value="50" class="slider" id="volume">
+                <input type="range" min="0" max="100" value="50" class="slider" id="progresso">
+            </div>
             <div class="music-details">
-                <p>{{duration}} min</p>
                 <form action="/profile?user={{username}}" method="GET">
                     <button type="submit" class="logout">Posted by: {{username}}</button>
                 </form>
@@ -61,12 +66,10 @@
     </div>
     <div class="modal-body">
         <p class="subtitle">Let your friends know what you are listening to!</p>
-            <form action="/upload" method="POST">
-                <input type="text" placeholder="Music Name" name="musicname" id="musicname" required>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" title="Select music" accept="" name="music" style="margin-bottom: 10px; width: 30%" class="upload">
                 <br><br>
-                <input type="number" step="0.01" placeholder="Duration" name="musicduration" id="musicduration"  lang="en" >
-                <br><br>
-                <button type="submit" name="upload" value="Upload" class="upload" id="upload">Upload</input>
+                <button type="submit" class="upload" >Upload</input>
             </form>
     </div>
 </div>
@@ -86,12 +89,11 @@
         modal.style.display = "none";        
     }
 
-
     function openModalMusic(music){
         //let music2 = JSON.stringify(music).replace(/"/g, '&quot;');
         console.log(music);
         alert(music);
-    }
+    }   
     
 </script>
 
@@ -114,3 +116,6 @@
     });      
 
 </script>
+
+<script src="https://localhost/mShare/node_modules/howler/src/howler.core.js"></script>
+<script src="https://localhost/mShare/player/player.js"></script>

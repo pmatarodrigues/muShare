@@ -267,6 +267,15 @@ input[type=submit]{
   box-shadow: 0px 0px 20px -10px black;
 }
 
+/* Player */
+#volume{
+  width: 100px;
+}
+
+#progresso{
+  width: 400px;
+}
+
 /* Add Animation */
 @keyframes animatetop {
   from {top: -300px; opacity: 0}
