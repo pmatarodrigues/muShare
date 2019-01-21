@@ -19,6 +19,7 @@
     "gulp-sync": "^0.1.4",
     "gulp-util": "^3.0.8",
     "hbs": "~4.0.1",
+    "howler": "^2.1.1",
     "http-errors": "~1.6.2",
     "moment": "^2.23.0",
     "morgan": "~1.9.0",

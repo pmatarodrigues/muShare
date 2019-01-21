@@ -34,7 +34,7 @@
         <div class="music-box">
             <strong> {{name}} </strong>
             <br>
-            <strong  onclick="openModalMusic()">[ &#8711; ]</strong>
+            <strong  onclick="play()">[ &#8711; ]</strong>
             <strong  onclick="openModalMusic()">[+]</strong>
             <div class="music-details">
                 <p>{{duration}} min</p>
@@ -61,7 +61,7 @@
                 <br><br>
                 <input type="number" step="0.01" placeholder="Duration" name="musicduration" id="musicduration"  lang="en" >
                 <br><br>
-                <input type="file" title="Select music" accept="" name="music" style="margin-bottom: 50px; width: 30%" class="upload">
+                <input type="file" title="Select music" accept="" name="file" style="margin-bottom: 50px; width: 30%" class="upload">
                 <br><br>
                 <button type="submit" name="upload" value="Upload" class="upload" id="upload">Upload</input>
             </form>
@@ -83,12 +83,11 @@
         modal.style.display = "none";        
     }
 
-
     function openModalMusic(music){
         //let music2 = JSON.stringify(music).replace(/"/g, '&quot;');
         console.log(music);
         alert(music);
-    }
+    }   
     
 </script>
 
@@ -111,3 +110,6 @@
     });      
 
 </script>
+
+<script src="http://localhost/muShare/node_modules/howler/src/howler.core.js"></script>
+<script src="http://localhost/muShare/player/player.js"></script>

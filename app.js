@@ -22,6 +22,7 @@ var dotenv = require('dotenv').config();
 var flash = require('req-flash');
 var fileupload = require("express-fileupload");
 var multer  = require('multer');
+var howler = require('howler');
 
 var app = express();
 
