@@ -9,7 +9,7 @@ function isAuthenticated(req, res, next) {
 }
 
 
-router.get('/', isAuthenticated, function(req, res, next) {    
+router.get('/', isAuthenticated, function(req, res, next) {  
 
   db.query('SELECT * FROM user WHERE username = "' + req.query.user + '"', function(err, result) {
     if(err){        

@@ -4,30 +4,7 @@ var volume = document.getElementById("volume");
 var progresso = document.getElementById("progresso");
 var musAtual = document.getElementById("musAtual");
 
-// ----------------------------------
-/*function Player(music){
-  // -- path to music
-  this.music = music;
-  this.sound = new Howl({
-    src: ['music/' + this.music]
-  })
-}
 
-Player.prototype = {
-
-  play: function(){
-    this.sound.play();
-  },
-
-  pause: function(){
-    this.sound.pause();
-  },
-
-  stop: function(){
-    this.sound.stop();
-  }
-
-}*/
 var sound;
 
 function play(music, name){
@@ -39,13 +16,11 @@ function play(music, name){
     })
     musAtual.innerHTML = name;
   }
-
   if(sound.playing()){
 
   }else{
     sound.play();
-  } 
-  
+  }   
 }
 
 function pause(){
@@ -70,8 +45,3 @@ progresso.oninput = function() {
     sound.seek(sound.duration() * (this.value/100));
   }
 } 
-
-// Music progression slide bar update
-//
-//
-//

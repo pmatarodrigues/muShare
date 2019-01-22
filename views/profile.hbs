@@ -7,6 +7,11 @@
     <div class="navbar-left">
         <h1 class="title">{{title}}</h1>
     </div>
+    <div class="sliders">
+                <h1 id="musAtual">Sem musica</h1>
+                <input type="range" min="0" max="100" value="50" class="slider" id="volume">
+                <input type="range" min="0" max="100" value="0" class="slider" id="progresso">
+            </div>
     <div class="navbar-right">
         <div class="dropdown">
             <div style="margin-right: 10px;">
@@ -31,7 +36,7 @@
 
 <div style="height: 45vh">
     <div class="settings-box" style="height: 20vh">
-        <img src="images/profilepics/{{user.pic}}" class="profile-pic-user" alt="userPic">  
+        <img src="images/profilepics/{{userProfile.pic}}" class="profile-pic-user" alt="userPic">  
         <h1 style="color: var(--dark-blue)">{{userProfile.username}}</h1>
     </div>
 </div>
@@ -42,12 +47,13 @@
         <div class="music-box">
             <strong> {{name}} </strong>
             <br>
-            <strong  onclick="openModalMusic()">[ &#8711; ]</strong>
-            <strong  onclick="openModalMusic()">[+]</strong>
-            <div class="music-details">
-                <p>{{duration}} min</p>
-            </div>
+            <button onclick="play('{{music}}', '{{name}}')">Play</button>
+            <button onclick="pause()">Pause</button>
+            <button onclick="stop()">Stop</button>
         </div>
         {{/each}}
     </ul>
 </div>
+
+<script src="http://localhost/muShare/node_modules/howler/src/howler.core.js"></script>
+<script src="http://localhost/muShare/player/player.js"></script>

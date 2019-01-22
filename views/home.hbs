@@ -114,6 +114,8 @@
         console.log("MUSIC -> " + music);
         var htmlMusicData = '<strong>'+music.name+'</strong>';
         htmlMusicData += '<p>'+music.duration+' min</p>';
+        htmlMusicData += '<button onclick="pause()">Pause</button>';
+        htmlMusicData += '<button onclick="stop()">Stop</button>';
         $("#shared-feed-musiclist").append($('<div class="music-box">').html(htmlMusicData));
     });      
 
